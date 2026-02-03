@@ -2,24 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My First Meme Website</title>
+  <title>My Meme Website</title>
   <style>
-    /* Meme-style background */
+    /* Background and text */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      background-color: #FFEB3B; /* Bright yellow */
+      background-color: #FFEB3B; /* Bright meme yellow */
       color: #222; /* Dark text for contrast */
-      text-align: center;
       font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
 
+    /* Button style */
     button {
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
-      background-color: #FF5722; /* Bright orange button */
+      background-color: #FF5722; /* Bright orange */
       color: white;
       border: none;
       border-radius: 5px;
@@ -28,14 +33,18 @@
     }
 
     button:hover {
-      background-color: #E64A19; /* Darker orange on hover */
+      background-color: #E64A19; /* Darker orange */
     }
 
+    /* Image style */
     #myImage {
       margin-top: 20px;
-      max-width: 90%;
+      max-width: 400px; /* Make image not too big */
+      width: 80%;       /* Responsive on smaller screens */
       height: auto;
-      display: none; /* Hidden by default */
+      display: none;    /* Hidden by default */
+      border: 2px solid #FF5722; /* Optional fun border */
+      border-radius: 10px;
     }
   </style>
 </head>
@@ -50,4 +59,21 @@
   <!-- Hidden image -->
   <img
     id="myImage"
-    src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1
+    src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*GI-td9gs8D5OKZd19mAOqA.png"
+    alt="Article Image"
+  >
+
+  <script>
+    // Ensure image is hidden on page load
+    window.onload = function() {
+      document.getElementById("myImage").style.display = "none";
+    }
+
+    function showImage() {
+      const img = document.getElementById("myImage");
+      img.style.display = "block"; // Show image on button click
+    }
+  </script>
+
+</body>
+</html>
