@@ -10,7 +10,7 @@
       padding: 0;
       height: 100%;
       background-color: #FFEB3B; /* Bright meme yellow */
-      color: #222; /* Dark text for contrast */
+      color: #222; /* Dark text */
       font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
@@ -39,12 +39,12 @@
     /* Image style */
     #myImage {
       margin-top: 20px;
-      max-width: 400px; /* Make image not too big */
-      width: 80%;       /* Responsive on smaller screens */
+      max-width: 400px; /* Not too big */
+      width: 80%;       /* Responsive */
       height: auto;
-      display: none;    /* Hidden by default */
-      border: 2px solid #FF5722; /* Optional fun border */
+      border: 2px solid #FF5722; /* Fun border */
       border-radius: 10px;
+      display: none; /* Hidden initially */
     }
   </style>
 </head>
@@ -54,7 +54,7 @@
   <p>This site is live.</p>
 
   <!-- Button -->
-  <button onclick="showImage()">View Image</button>
+  <button id="viewButton">View Image</button>
 
   <!-- Hidden image -->
   <img
@@ -64,15 +64,19 @@
   >
 
   <script>
-    // Ensure image is hidden on page load
-    window.onload = function() {
-      document.getElementById("myImage").style.display = "none";
-    }
+    // Grab elements
+    const button = document.getElementById("viewButton");
+    const image = document.getElementById("myImage");
 
-    function showImage() {
-      const img = document.getElementById("myImage");
-      img.style.display = "block"; // Show image on button click
-    }
+    // Hide image initially just in case
+    image.style.display = "none";
+
+    // Show image on button click
+    button.addEventListener("click", () => {
+      image.style.display = "block"; // Make image appear
+      // Optionally, hide the button after click
+      button.style.display = "none";
+    });
   </script>
 
 </body>
